@@ -1,0 +1,26 @@
+{
+  "$schema": "./schemas/app-config.schema.json",
+  "name": "Image Pipeline Builder",
+  "nameJa": "画像処理パイプライン",
+  "slug": "image-pipeline-builder",
+  "version": "1.0.0",
+  "description": "Build reusable image-processing flows and run them locally in your browser.",
+  "descriptionJa": "画像処理をつないで、同じ手順をブラウザ内で繰り返し使えるツールです。",
+  "defaultLanguage": "auto",
+  "repository": {
+    "owner": "ttomohisa",
+    "name": "htmlapps-image-pipeline-builder"
+  },
+  "build": {
+    "output": "dist/index.html",
+    "blockRuntimeNetwork": true,
+    "selfExtract": {
+      "enabled": true,
+      "output": "dist/index.self-extract.html"
+    },
+    "sizeBudget": {
+      "readableWarningMb": 25,
+      "selfExtractWarningMb": 12
+    }
+  }
+}
