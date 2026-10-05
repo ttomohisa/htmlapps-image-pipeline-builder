@@ -117,7 +117,11 @@ Recipes and Pipeline JSON intentionally serve different purposes.
 - If browser storage is full or unavailable, a save error leaves the old Recipe and entered name intact so you can retry.
 - Quick Recipes and regular Batch processing run one job at a time. **Cancel** preserves completed outputs and enables a new run after processing stops.
 
+- To back up a saved Recipe without changing your current Canvas, open the Recipe library and choose **Export Pipeline JSON** beside that Recipe. Edit the filename, then export. The dialog captures the saved settings; Cancel, Escape or clicking outside leaves everything unchanged. Names are sanitized and end in `.image-pipeline.json`.
+
 **Pipeline JSON**
+
+- A newer JSON selection or an intervening graph/source edit cancels an older pending import. Late reads cannot overwrite your newer work.
 
 - Downloaded/uploaded explicitly by the user.
 - Designed for backup or moving a graph to another browser/device.

@@ -24,6 +24,7 @@ class Element {
   setAttribute(name,value) { this.attributes[name]=value; }
   addEventListener(name,fn) { this['on'+name]=fn; }
   focus() { this.focused=true; }
+  close() { this.open=false; }
 }
 function descendants(root) { return root.children.flatMap(child=>[child,...descendants(child)]); }
 function harness() {
@@ -42,7 +43,7 @@ function harness() {
   }};
   const ctx={Core,Pipeline,registry,graph,AbortController,Set,Map,Date,Blob,console,document,$,
     APP_CONFIG:{version:'1.0.0'}, RECIPE_LIMIT:30,SAVED_WORKFLOWS_STORAGE_KEY:'recipes',
-    savedWorkflows:[],quickRecipeFiles:new Map(),batchAbortController:null,activeBatchJob:null,batchResult:null,batchRunning:false,recipeMutationPending:false,
+    pipelineImportGeneration:0,recipeExportSnapshot:null,savedWorkflows:[],quickRecipeFiles:new Map(),batchAbortController:null,activeBatchJob:null,batchResult:null,batchRunning:false,recipeMutationPending:false,
     sourceItems:[{id:'source',file:{name:'source.png',type:'image/png',size:10}}],
     supportedTypes:new Set(['image/png']),language:'en',
     t:(key,params={})=>key+JSON.stringify(params),AppToast:{show:message=>notices.push(message)},
@@ -58,7 +59,7 @@ function harness() {
     async downloadCompletedBatchResult(result){downloads.push(result);return result.entries.some(e=>e.status==='success');},
   };
   vm.createContext(ctx);
-  for(const name of ['recipeGraph','recipeFiles','renderRecipeList','renderQuickRecipes','persistSavedWorkflows','persistRecipes','saveRecipe','updateRecipe','deleteRecipe','setBatchRunning','releaseBatchResult','isCurrentBatchJob','runOwnedBatch','runBatch','runQuickRecipe']) {
+  for(const name of ['invalidatePipelineImport','closeRecipeExport','recipeGraph','recipeFiles','renderRecipeList','renderQuickRecipes','persistSavedWorkflows','persistRecipes','saveRecipe','updateRecipe','deleteRecipe','setBatchRunning','releaseBatchResult','isCurrentBatchJob','runOwnedBatch','runBatch','runQuickRecipe']) {
     const code=source(name);if(code)vm.runInContext(code,ctx);
   }
   const record=(id,name=id)=>Pipeline.createSavedWorkflowRecord({id,name,document:Pipeline.createWorkflowDocument(Core,graph,{appVersion:'1.0.0',name}),updatedAt:'2026-10-01T00:00:00Z'});
