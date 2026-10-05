@@ -358,7 +358,7 @@ test('v1.0.0 language refresh does not depend on the removed legacy brandName el
 });
 
 test('v1.0.0 quick Recipe execution reveals the Run page on mobile', () => {
-  assert.match(html, /runQuickRecipe\(id,button\)\{[^\n]*isMobileLayout\(\)[^\n]*setMobilePage\('run'/);
+  assert.match(html, /runOwnedBatch\(items,graphRef,[\s\S]*?if\(recipe\)\{[\s\S]*?isMobileLayout\(\)[^\n]*setMobilePage\('run'/);
 });
 
 test('v1.0.0 palette nodes can be dragged from the left palette to a canvas drop position', () => {
@@ -379,7 +379,7 @@ test('v1.0.0 preview preserves the image aspect ratio inside the preview stage',
 
 test('v1.0.0 quick Recipe execution automatically downloads its completed result', () => {
   assert.ok(html.includes('downloadCompletedBatchResult'));
-  assert.match(html, /runQuickRecipe\(id,button\)\{[^\n]*await downloadCompletedBatchResult\(result/);
+  assert.match(html, /runOwnedBatch\(items,graphRef,[\s\S]*?if\(recipe\)\{[\s\S]*?await downloadCompletedBatchResult\(result/);
 });
 
 test('v1.0.0 desktop workspace fixes side panel height and scrolls panel contents like Data Pipeline Builder', () => {
@@ -419,8 +419,8 @@ test('v1.0.0 preview cache explicitly releases evicted snapshot backing stores',
 test('v1.0.0 batch cancellation checks the AbortSignal between decode, graph, and output stages', () => {
   assert.ok(html.includes('function throwIfAborted(signal)'));
   assert.ok(html.includes('createFrameEvaluator(frame=previewFrame,graphRef=graph,signal=null)'));
-  assert.ok(html.includes('encodeSourceOutputs(item,{index:context.index,usedPaths,signal:context.signal})'));
-  assert.ok(html.includes('graphRef:recipeGraphValue,signal:context.signal'));
+  assert.ok(html.includes('encodeSourceOutputs(item,{index:context.index,usedPaths,graphRef,signal:context.signal})'));
+  assert.ok(html.includes('runOwnedBatch(items,recipeGraphValue,{recipe:record})'));
 });
 
 test('v1.0.0 releases completed batch output references when results are invalidated', () => {
@@ -430,5 +430,5 @@ test('v1.0.0 releases completed batch output references when results are invalid
 });
 
 test('v1.0.0 pagehide cleanup releases preview cache and batch output references', () => {
-  assert.match(html, /pagehide[\s\S]*previewCache\.clear\(\)[\s\S]*releaseBatchResult\(batchResult\)/);
+  assert.match(html, /pagehide[\s\S]*previewCache\.clear\(\)[\s\S]*clearBatchResults\(\)/);
 });

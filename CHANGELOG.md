@@ -2,6 +2,17 @@
 
 All notable changes to Image Pipeline Builder are documented here.
 
+## [Unreleased]
+
+### Fixed
+
+- Prevent overlapping Quick Recipe and regular Batch runs, preserve Cancel ownership, and keep staging/action controls disabled after language changes.
+- Ignore stale progress/completion/ZIP downloads and cleanup after a run is discarded; preserve partial results and truthful cancelled/failed status.
+- Preserve saved Recipes, staged files and entered names when browser storage writes fail; only report success after persistence succeeds.
+- Reject duplicate Recipe registration and require localized, safely cancellable confirmation for explicit Update/Delete.
+- Regenerate the root standalone download and verify Consumer/release parity; run Core and Consumer tests in the aggregate repository check.
+- Preserve canonical Core bytes, image algorithms, storage keys, schema and runtime dependencies.
+
 ## [1.0.0] - 2026-09-21
 
 ### Stable release

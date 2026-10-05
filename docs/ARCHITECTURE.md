@@ -56,6 +56,8 @@ Two browser-local storage keys are used:
 
 Neither key contains source `File` objects, image bytes, decoded canvases, Preview cache entries, Batch result Blobs, object URLs, or runtime status. After a page restart the graph can be restored, but the user intentionally adds image files again.
 
+Recipe writes are transactional at the Consumer boundary: build a candidate collection, write it to localStorage, then commit the in-memory collection and redraw. Failed writes preserve prior records and staged files. Duplicate registration is rejected; explicit Update/Delete are confirmed using the adapted shared AppConfirm component. Storage keys and the formatVersion 1 envelope do not change.
+
 Saved Recipes reuse the same graph envelope but are a user-facing browser-local reuse feature. Quick Recipe cards stage source `File` objects only in memory, then either execute the saved graph directly without mutating the editor, or apply the Recipe graph plus selected files to the Canvas.
 
 Built-in templates are ordinary graph factories in the Consumer module. They return the same editable graph objects as manually created flows, and are immediately passed to NodeCanvas. There is no preset-only execution path.
@@ -96,6 +98,8 @@ The cache holds display-sized snapshot canvases plus full processing dimensions 
 A monotonically increasing generation token is checked after graph evaluation and after Output encoding. Late work from an older source, node, mode, or parameter state is discarded.
 
 ## Batch and branch path
+
+Regular Batch and quick Recipe runs share a Consumer-owned job object with a local AbortController. Only the current owner can publish progress/results, download an asynchronously prepared ZIP, or unlock controls. Pagehide aborts and invalidates the owner; stale callbacks release their own results. Recreated quick cards inherit the current busy state.
 
 The Batch runner handles one source at a time:
 

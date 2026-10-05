@@ -62,6 +62,10 @@ Preserved v0.8.x UI/behavior requirements:
   - **Use this Recipe** runs the saved Recipe against the selected images without replacing the current Canvas.
   - **Apply to Canvas** replaces the editable graph with the Recipe and loads the selected images for further editing.
 - The Recipe library can register the current Pipeline, use a Recipe, update it from the current Pipeline, and delete it.
+- Recipe registration rejects an existing name after trimming and case folding; users choose a different name or the explicit Update action. Update and Delete name the affected Recipe in a localized confirmation dialog with cancellation, Escape/backdrop dismissal and focus restoration.
+- Recipe add/update/delete first persist the candidate collection. On storage failure, the previous collection, staged images and entered name remain unchanged; a localized error replaces any success notice. A retry uses the same storage key, record shape and formatVersion 1.
+- Quick Recipe and regular Batch execution share one owned job. Duplicate starts are ignored; all launch, staging and Recipe mutation controls remain disabled through cancellation/encoding and language changes. Late progress, ZIP preparation, completion and cleanup from a discarded job cannot affect a newer job.
+- Cancel retains completed outputs, releases ownership only after the current job stops, and permits retry. Cancelled/failed runs never claim that the entire Recipe completed and downloaded.
 - Portable JSON is a separate **Pipeline save/open** operation. Pipeline JSON continues to use the `image-pipeline-builder-workflow` envelope (`formatVersion: 1`) internally for backward compatibility.
 - Five built-in templates remain separate from Recipes and expand into ordinary editable graph nodes: Web images, Main + thumbnail, Social square, Watermarked images, and Minimal flow.
 - Image `File` objects, decoded pixels, Preview snapshots, Batch result Blobs, ZIP bytes, runtime status, quick-Recipe staged files, and current selection are never stored as Recipe/Pipeline data.
