@@ -112,6 +112,10 @@ Recipes and Pipeline JSON intentionally serve different purposes.
 - Designed for quickly reusing a processing flow with different images.
 - Appears as a quick Recipe card above the editor.
 - Does not store source image files or generated output files.
+- Names must be unique (ignoring surrounding spaces and case). Choose another name to register a copy; **Update** replaces the named Recipe only after confirmation.
+- **Update** and **Delete** cannot be undone. Cancel the confirmation to keep the saved Recipe.
+- If browser storage is full or unavailable, a save error leaves the old Recipe and entered name intact so you can retry.
+- Quick Recipes and regular Batch processing run one job at a time. **Cancel** preserves completed outputs and enables a new run after processing stops.
 
 **Pipeline JSON**
 
@@ -130,6 +134,8 @@ The repository includes workflows that validate the standalone files and deploy 
 4. After a successful deployment, the demo is available at `https://ttomohisa.github.io/htmlapps-image-pipeline-builder/`.
 
 The deployment workflow runs `scripts/check-repository.ps1` before publishing and uploads both standalone variants plus their manifests.
+
+The repository check requires Node.js 24 (no npm packages are needed) and runs all Core/Consumer tests after building. Regenerate the root `image-pipeline-builder.html` download from `dist/index.html` whenever the source changes; release tests check the root, readable and self-extract contents.
 
 ## Development and build layout
 

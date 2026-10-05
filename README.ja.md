@@ -112,6 +112,10 @@ RecipeとPipeline JSONは意図的に役割を分けています。
 - 別の画像へ同じ処理をすぐ繰り返す用途です。
 - 保存するとEditor上部にRecipeカードが表示されます。
 - 元画像や生成画像は保存しません。
+- 名前は前後の空白と大文字・小文字を除いて重複できません。別名ならコピーを登録でき、**更新**なら確認後に指定したRecipeを置き換えます。
+- **更新**と**削除**は元に戻せません。確認画面のキャンセルで保存済みRecipeをそのまま残せます。
+- ブラウザーの保存容量不足などで保存できない場合は、以前のRecipeと入力した名前を残してエラーを表示します。状態を確認して再試行できます。
+- Recipeと通常の一括処理は一度に1件ずつ実行します。**中止**しても完了した結果は残り、処理が停止すると再実行できます。
 
 **Pipeline JSON**
 
@@ -130,6 +134,8 @@ RecipeとPipeline JSONは意図的に役割を分けています。
 4. 成功後、`https://ttomohisa.github.io/htmlapps-image-pipeline-builder/` で公開されます。
 
 デプロイ前に `scripts/check-repository.ps1` が実行され、readable / self-extract両方とmanifestを検証します。
+
+リポジトリ検証にはNode.js 24が必要です（npmパッケージは不要）。ビルド後にCore/Consumerの全テストを実行します。ソース変更時は`dist/index.html`からルートの`image-pipeline-builder.html`も再生成してください。テストでルート、readable、self-extractの内容の一致を確認します。
 
 ## 開発とビルド
 

@@ -235,6 +235,16 @@ $buildArguments = @{}
 if ($ForceDownload) { $buildArguments.ForceDownload = $true }
 & (Join-Path $Root "build-standalone.ps1") @buildArguments
 
+# Run the Core and Consumer regressions after both standalone variants are built.
+$testFiles = @(Get-ChildItem -Path (Join-Path $Root "tests") -Filter "*.test.mjs" | ForEach-Object { $_.FullName })
+Push-Location $Root
+try {
+  & node --test @testFiles
+  if ($LASTEXITCODE -ne 0) { throw "Core/Consumer regression tests failed." }
+} finally {
+  Pop-Location
+}
+
 Write-Host "[OK] Repository check passed." -ForegroundColor Green
 
 # WebRTC readiness DataChannel regression
