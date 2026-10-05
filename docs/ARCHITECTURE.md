@@ -62,6 +62,10 @@ Saved Recipes reuse the same graph envelope but are a user-facing browser-local 
 
 Built-in templates are ordinary graph factories in the Consumer module. They return the same editable graph objects as manually created flows, and are immediately passed to NodeCanvas. There is no preset-only execution path.
 
+Recipe-library export parses a saved record into a detached graph, serializes a version-1 envelope into a dialog-owned JSON string, and downloads that snapshot only after the user submits an editable, sanitized filename. It never calls the Canvas apply path or storage writers. Closing the native dialog releases the snapshot and uses native focus restoration; reopening captures the selected Recipe again.
+
+The Consumer's `pipelineImportGeneration` owns asynchronous `File.text()` reads. New selections and graph/source mutation boundaries advance the generation. Only the current generation may parse/apply, announce a failure or clean the file input. A successful import clears its own picker before graph/source application invalidates its token. Graph `onChange` covers ordinary edits and Undo/Redo; Batch start and pagehide also invalidate pending imports. This is independent of the existing Batch job owner and leaves Core/image algorithms unchanged.
+
 Pipeline JSON save/open uses the same envelope as current recovery and Recipe records. Opening a Pipeline replaces only graph/settings and never attempts external file or URL resolution. Recipe and Pipeline JSON are intentionally separate user-facing concepts even though they share the internal envelope format.
 
 ## Appearance / Composition path

@@ -4,7 +4,14 @@ All notable changes to Image Pipeline Builder are documented here.
 
 ## [Unreleased]
 
+### Added
+
+- Export a saved Recipe directly as a validated Pipeline JSON snapshot without applying it to Canvas or changing sources, results, history, staging or browser storage.
+- Edit the Recipe backup filename in a localized native dialog, with safe filename normalization and the existing `.image-pipeline.json` formatVersion 1 envelope.
+
 ### Fixed
+
+- Reject stale Pipeline imports after a newer selection, graph/source changes, Batch start or pagehide. Older success/failure callbacks and cleanup cannot affect newer work.
 
 - Prevent overlapping Quick Recipe and regular Batch runs, preserve Cancel ownership, and keep staging/action controls disabled after language changes.
 - Ignore stale progress/completion/ZIP downloads and cleanup after a run is discarded; preserve partial results and truthful cancelled/failed status.
