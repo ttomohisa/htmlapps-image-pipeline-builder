@@ -39,15 +39,15 @@ Windows:
 
 失敗状態の確認では、正常画像と意図的に壊した画像を一緒に追加します。壊れた1件だけが失敗し、正常画像の処理が続くことを確認します。
 
-画像ファイル、デコード後の画素、Appearance / Composition処理、Before / After Preview、表示用snapshot、Preview cache、Batch結果、出力Blob、生成ZIPはブラウザ内に留まります。v1.0.0はアクセス解析・テレメトリ・クラウド保存・画像API・外部フォントを使用しません。現在のPipeline自動復元 / Recipe保存は端末内のブラウザ保存領域だけを使い、画像ファイル自体は保存しません。Recipeカードで一時選択した画像も永続化しません。
+画像ファイル、デコード後の画素、Appearance / Composition処理、Before / After Preview、表示用snapshot、Preview cache、Batch結果、出力Blob、生成ZIPはブラウザ内に留まります。v1.0.1はアクセス解析・テレメトリ・クラウド保存・画像API・外部フォントを使用しません。現在のPipeline自動復元 / Recipe保存は端末内のブラウザ保存領域だけを使い、画像ファイル自体は保存しません。Recipeカードで一時選択した画像も永続化しません。
 
-## Mobile / UX / Accessibility確認 (v1.0.0)
+## Mobile / UX / Accessibility確認 (v1.0.1)
 
 390px幅でフロー / 画像 / ノード / 実行の下部タブ、ノード追加Bottom Sheet、長いファイル名、Recipe/Template/Help Dialog、Toast、浮かせて拡大したWorkspaceを確認します。ページ全体の横スクロールが発生せず、固定ナビゲーションが操作部や結果を隠さないことを確認します。
 
 Palette検索と `Ctrl+Enter` / `Command+Enter` のBatch実行もブラウザ内だけで動作し、外部通信を追加しません。
 
-## v1.0.0 UI回帰確認
+## v1.0.1 UI回帰確認
 
 - **全体を表示** とキャンバス拡大のアイコンが見分けられること。
 - PCで左右パネルを開いた状態でも、下部のフローステータス行が完全に表示されること。

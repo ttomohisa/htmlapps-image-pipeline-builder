@@ -3,7 +3,7 @@
   "name": "Image Pipeline Builder",
   "nameJa": "画像処理パイプライン",
   "slug": "image-pipeline-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build reusable image-processing flows and run them locally in your browser.",
   "descriptionJa": "画像処理をつないで、同じ手順をブラウザ内で繰り返し使えるツールです。",
   "defaultLanguage": "auto",

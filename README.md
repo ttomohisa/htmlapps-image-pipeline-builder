@@ -205,8 +205,8 @@ See [Offline / privacy verification](VERIFY_OFFLINE.md).
 
 ## Limitations
 
-- Input is limited to static JPEG, PNG, and WebP in v1.0.0. Animated GIF/WebP, HEIC/HEIF, TIFF, RAW, SVG, and PSD are not supported as source formats.
-- Output is JPEG, PNG, or WebP. AVIF is not included in v1.0.0.
+- Input is limited to static JPEG, PNG, and WebP in v1.0.1. Animated GIF/WebP, HEIC/HEIF, TIFF, RAW, SVG, and PSD are not supported as source formats.
+- Output is JPEG, PNG, or WebP. AVIF is not included in v1.0.1.
 - Crop is batch-oriented and uses ratio/size/anchor settings rather than per-image freehand crop handles.
 - Text Watermark uses system fonts; external web fonts are not loaded.
 - JPEG output flattens transparency against the configured background color.
@@ -219,7 +219,7 @@ See [Offline / privacy verification](VERIFY_OFFLINE.md).
 
 ## Dependencies
 
-There are no third-party npm runtime libraries declared in `dependencies.json` for v1.0.0.
+There are no third-party npm runtime libraries declared in `dependencies.json` for v1.0.1.
 
 The application includes the Browser Kitty / ttomohisa Node Editor Core source snapshot under the same repository MIT license. Browser APIs provide image decoding/encoding, Canvas processing, Blob/File handling, and downloads. The ZIP writer is implemented in the project itself.
 

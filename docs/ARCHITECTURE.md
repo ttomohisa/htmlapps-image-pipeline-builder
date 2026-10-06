@@ -145,7 +145,7 @@ Cancelling preserves already completed outputs and does not classify the current
 
 `build-standalone.ps1` injects both the unchanged Core source and the Image Pipeline Consumer source into `src/index.template.html`, removes their ESM-only `export default` statements for browser embedding, then applies the standard Browser Kitty standalone checks.
 
-No third-party runtime dependency is required in v1.0.0. Workflow persistence uses browser-local storage and the existing project code only.
+No third-party runtime dependency is required in v1.0.1. Workflow persistence uses browser-local storage and the existing project code only.
 
 ## Mobile workspace
 
