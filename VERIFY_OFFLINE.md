@@ -47,7 +47,7 @@ Recommended failure check: include one intentionally broken image together with 
 - encoded output Blobs and batch result state
 - application graph/settings
 
-v1.0.0 also performs Adjust / Grayscale / Blur / Sharpen / Border / Rounded Corners / Text Watermark, Before/After Preview, small display snapshots, Preview cache entries, and representative Output encodes in the browser. Batch processing and ZIP packaging remain local. The app does not upload or cloud-store the input set, previews, outputs, or generated ZIP and does not include analytics, telemetry, cloud storage, or image APIs.
+v1.0.1 also performs Adjust / Grayscale / Blur / Sharpen / Border / Rounded Corners / Text Watermark, Before/After Preview, small display snapshots, Preview cache entries, and representative Output encodes in the browser. Batch processing and ZIP packaging remain local. The app does not upload or cloud-store the input set, previews, outputs, or generated ZIP and does not include analytics, telemetry, cloud storage, or image APIs.
 
 ## Recipe / Pipeline JSON / template verification
 
@@ -58,13 +58,13 @@ v1.0.0 also performs Adjust / Grayscale / Blur / Sharpen / Border / Rounded Corn
 5. Reopen the page and confirm the graph/settings recover while source images remain unselected.
 6. Repeat while DevTools Network is open and confirm no unexpected runtime request occurs.
 
-## Mobile / UX / Accessibility verification (v1.0.0)
+## Mobile / UX / Accessibility verification (v1.0.1)
 
 At 390 px, verify the Flow / Images / Node / Run bottom navigation, Add-node bottom sheet, long filenames, Recipe/Template/Help dialogs, toast placement, and floating workspace. There must be no page-level horizontal overflow and fixed navigation must not cover important controls or results.
 
 Palette search and the `Ctrl+Enter` / `Command+Enter` Batch shortcut remain browser-local UI behavior and add no external requests.
 
-## v1.0.0 UI regression checks
+## v1.0.1 UI regression checks
 
 - Confirm the **Fit All** icon is visually distinct from the workspace expand icon.
 - Confirm the bottom Flow status row remains fully visible at desktop widths with both side panels open.

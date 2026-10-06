@@ -4,6 +4,13 @@ All notable changes to Image Pipeline Builder are documented here.
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-10-06
+
+- Standardize the header language switch to EN / JA with localized accessible names and tooltips.
+- Localize graph Zoom out / Zoom in accessible names and tooltips in both languages.
+- Localize the Help tooltip while preserving the existing Fully local processing / 完全ローカル処理 badge and header layout.
+- Synchronize v1.0.1 metadata and standalone artifacts without changing the canonical Core or image-processing behavior.
+
 ### Added
 
 - Export a saved Recipe directly as a validated Pipeline JSON snapshot without applying it to Canvas or changing sources, results, history, staging or browser storage.

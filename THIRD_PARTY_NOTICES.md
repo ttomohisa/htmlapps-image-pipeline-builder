@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-Image Pipeline Builder v1.0.0 contains no bundled third-party npm library code. The ZIP writer, Preview cache, Recipe/Pipeline persistence/templates, mobile UX/accessibility code, and Appearance / Composition image operations are implemented in the project itself and do not add a third-party runtime dependency.
+Image Pipeline Builder v1.0.1 contains no bundled third-party npm library code. The ZIP writer, Preview cache, Recipe/Pipeline persistence/templates, mobile UX/accessibility code, and Appearance / Composition image operations are implemented in the project itself and do not add a third-party runtime dependency.
 
 The application bundles Node Editor Core source maintained in the same Browser Kitty/ttomohisa codebase and distributed under the repository MIT license. The exact Core source snapshot supplied for this app is kept in `src/core/node-editor-core.mjs`.
 

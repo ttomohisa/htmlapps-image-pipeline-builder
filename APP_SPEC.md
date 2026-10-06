@@ -4,7 +4,7 @@
 
 - **Name:** Image Pipeline Builder
 - **Japanese:** 画像処理パイプライン
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Repository:** `ttomohisa/htmlapps-image-pipeline-builder`
 - **Purpose:** Connect image-processing steps as a visible graph, reuse the flow, and apply it to multiple local images entirely in the browser.
 
@@ -142,6 +142,8 @@ Core must not contain image node branches, MIME handling, Canvas image operation
 
 ## 9. Desktop and mobile UI
 
+- The header uses EN in Japanese and JA in English, with localized language/help accessible names and tooltips. Graph Zoom out / Zoom in controls also use localized accessible names and tooltips. Preserve Fully local processing / 完全ローカル処理 and the vMAJOR.MINOR.PATCH version badge.
+
 Desktop keeps the FFmpeg Filter Builder-aligned integrated editor:
 
 ```text
@@ -168,7 +170,7 @@ Mobile uses the four task-oriented pages described above rather than stacking th
 - Worker/OffscreenCanvas acceleration as a release requirement
 - New processing-node categories beyond the v0.7.0 scope
 
-## 11. Release acceptance for v1.0.0
+## 11. Release acceptance for v1.0.1
 
 - Canonical Core source remains byte-for-byte unchanged.
 - Core + Consumer automated tests pass.
@@ -194,7 +196,7 @@ Mobile uses the four task-oriented pages described above rather than stacking th
 - A 1→3 Output branch reuses its shared upstream result rather than recomputing it per Output.
 - Preview-cache eviction/clear disposes snapshot backing stores; pagehide also clears Preview cache and Batch result references.
 - Large stored-ZIP regression covers at least 300 entries including UTF-8 paths.
-- README, changelog, architecture, privacy/offline docs, screenshots, and version metadata describe v1.0.0.
+- README, changelog, architecture, privacy/offline docs, screenshots, and version metadata describe v1.0.1.
 
 ## 12. Roadmap
 
@@ -207,3 +209,5 @@ Mobile uses the four task-oriented pages described above rather than stacking th
 - **v0.8.3:** PDF/Data Pipeline Builder-aligned shell, Recipe reuse/download, palette drag placement, fixed desktop side panels, and Preview aspect-fit fixes
 - **v0.9.0:** Release candidate / performance / regression
 - **v1.0.0:** Stable release
+
+- **v1.0.1:** Consistent bilingual header controls.
