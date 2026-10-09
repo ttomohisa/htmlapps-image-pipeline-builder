@@ -5,11 +5,11 @@ import fs from 'node:fs';
 const html = fs.readFileSync('src/index.template.html', 'utf8');
 const config = JSON.parse(fs.readFileSync('app.config.json', 'utf8'));
 
-test('app config identifies Image Pipeline Builder v1.0.1', () => {
+test('app config identifies Image Pipeline Builder v1.0.2', () => {
   assert.equal(config.name, 'Image Pipeline Builder');
   assert.equal(config.nameJa, '画像処理パイプライン');
   assert.equal(config.slug, 'image-pipeline-builder');
-  assert.equal(config.version, '1.0.1');
+  assert.equal(config.version, '1.0.2');
   assert.equal(config.build.blockRuntimeNetwork, true);
 });
 
@@ -80,7 +80,7 @@ test('v0.4 copy describes multiple images and no longer claims one-image scope',
 });
 
 test('v0.4 release copy and batch errors are version-consistent and generic', () => {
-  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.1</span>'));
+  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.2</span>'));
   assert.ok(html.includes('id="dropBody"'));
   assert.ok(html.includes("batchItemFailed:'画像を処理できませんでした。'"));
   assert.ok(html.includes("batchItemFailed:'Could not process the image.'"));
@@ -160,8 +160,8 @@ test('v0.4 runtime evaluates crop rotate flip and canvas nodes', () => {
 });
 
 test('v0.4 release copy and help describe geometry processing', () => {
-  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.1</span>'));
-  for (const token of ['Crop', 'Rotate', 'Flip', 'Canvas', 'v1.0.1']) assert.ok(html.includes(token), `missing v0.4 copy: ${token}`);
+  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.2</span>'));
+  for (const token of ['Crop', 'Rotate', 'Flip', 'Canvas', 'v1.0.2']) assert.ok(html.includes(token), `missing v0.4 copy: ${token}`);
 });
 
 
@@ -187,10 +187,10 @@ test('v0.5 preview has explicit loading cached ready and error states', () => {
 });
 
 test('v0.5 release copy identifies intermediate preview scope', () => {
-  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.1</span>'));
+  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.2</span>'));
   assert.ok(html.includes('Before'));
   assert.ok(html.includes('After'));
-  assert.ok(html.includes('v1.0.1'));
+  assert.ok(html.includes('v1.0.2'));
 });
 
 test('v0.6 palette and inspector expose appearance and composition nodes', () => {
@@ -211,8 +211,8 @@ test('v0.6 runtime evaluates all appearance and composition nodes', () => {
 });
 
 test('v0.6 release metadata and copy describe appearance and composition scope', () => {
-  assert.equal(config.version, '1.0.1');
-  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.1</span>'));
+  assert.equal(config.version, '1.0.2');
+  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.2</span>'));
   for (const token of ['Adjust', 'Grayscale', 'Blur', 'Sharpen', 'Border', 'Rounded Corners', 'Text Watermark']) {
     assert.ok(html.includes(token), `missing v0.6 copy: ${token}`);
   }
@@ -243,15 +243,15 @@ test('v0.7 workflow storage never persists image File objects and uses workflow 
 });
 
 test('v0.7 release metadata and help describe reusable workflows', () => {
-  assert.equal(config.version, '1.0.1');
-  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.1</span>'));
-  for (const token of ['Recipe', 'テンプレート', 'JSON', 'v1.0.1']) assert.ok(html.includes(token), `missing v0.7 copy: ${token}`);
+  assert.equal(config.version, '1.0.2');
+  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.2</span>'));
+  for (const token of ['Recipe', 'テンプレート', 'JSON', 'v1.0.2']) assert.ok(html.includes(token), `missing v0.7 copy: ${token}`);
 });
 
 test('v0.8 release metadata identifies the mobile UX and accessibility phase', () => {
-  assert.equal(config.version, '1.0.1');
-  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.1</span>'));
-  assert.ok(html.includes('v1.0.1'));
+  assert.equal(config.version, '1.0.2');
+  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.2</span>'));
+  assert.ok(html.includes('v1.0.2'));
 });
 
 test('v0.8 mobile bottom navigation exposes Flow Images Node and Run pages', () => {
@@ -321,7 +321,7 @@ test('v1.0.0 uses the supplied Image Pipeline Builder icon for favicon and heade
   const favicon = fs.readFileSync('assets/favicon.svg', 'utf8').trim();
   assert.ok(favicon.includes('viewBox="0 0 64 64"'));
   assert.ok(favicon.includes('width="59" height="59" rx="14.75"'));
-  assert.ok(favicon.includes('#11644f'));
+  assert.ok(favicon.includes('#16624f'));
   assert.ok(html.includes('id="appBrandIcon" src="__APP_ICON_DATA_URI__"'));
 });
 
@@ -405,9 +405,9 @@ test('v1.0.0 desktop canvas can shrink inside the fixed workspace so the status 
 });
 
 test('v1.0.0 stable release metadata is versioned consistently', () => {
-  assert.equal(config.version, '1.0.1');
-  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.1</span>'));
-  assert.ok(html.includes('v1.0.1'));
+  assert.equal(config.version, '1.0.2');
+  assert.ok(html.includes('<span class="version-badge" id="versionBadge">v1.0.2</span>'));
+  assert.ok(html.includes('v1.0.2'));
 });
 
 test('v1.0.0 preview cache explicitly releases evicted snapshot backing stores', () => {

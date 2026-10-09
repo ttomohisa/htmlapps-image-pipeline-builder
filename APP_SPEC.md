@@ -1,10 +1,15 @@
 # Image Pipeline Builder — APP_SPEC
 
+## v1.0.2 — Icon normalization
+
+- Canonical background and matching artwork green: `#16624f`; background x/y radii exactly 25% of their respective dimensions.
+- Preserve artwork, padding, app behavior, and synchronized header/favicon/download/loader representations.
+
 ## 1. Product identity
 
 - **Name:** Image Pipeline Builder
 - **Japanese:** 画像処理パイプライン
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Repository:** `ttomohisa/htmlapps-image-pipeline-builder`
 - **Purpose:** Connect image-processing steps as a visible graph, reuse the flow, and apply it to multiple local images entirely in the browser.
 
