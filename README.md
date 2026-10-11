@@ -8,6 +8,8 @@
 
 A privacy-focused, single-HTML browser app for building reusable image-processing pipelines and running the same flow across multiple JPEG, PNG, and WebP images without uploading selected files to a server.
 
+Modal dialogs keep the page behind them still. In Recipe Update/Delete confirmations, the Close button stays visible while the message and actions scroll inside the dialog.
+
 ## 🚀 Live demo
 
 ### [Open Image Pipeline Builder on GitHub Pages](https://ttomohisa.github.io/htmlapps-image-pipeline-builder/)
@@ -205,8 +207,8 @@ See [Offline / privacy verification](VERIFY_OFFLINE.md).
 
 ## Limitations
 
-- Input is limited to static JPEG, PNG, and WebP in v1.0.1. Animated GIF/WebP, HEIC/HEIF, TIFF, RAW, SVG, and PSD are not supported as source formats.
-- Output is JPEG, PNG, or WebP. AVIF is not included in v1.0.1.
+- Input is limited to static JPEG, PNG, and WebP in v1.0.3. Animated GIF/WebP, HEIC/HEIF, TIFF, RAW, SVG, and PSD are not supported as source formats.
+- Output is JPEG, PNG, or WebP. AVIF is not included in v1.0.3.
 - Crop is batch-oriented and uses ratio/size/anchor settings rather than per-image freehand crop handles.
 - Text Watermark uses system fonts; external web fonts are not loaded.
 - JPEG output flattens transparency against the configured background color.
@@ -219,7 +221,7 @@ See [Offline / privacy verification](VERIFY_OFFLINE.md).
 
 ## Dependencies
 
-There are no third-party npm runtime libraries declared in `dependencies.json` for v1.0.1.
+There are no third-party npm runtime libraries declared in `dependencies.json` for v1.0.3.
 
 The application includes the Browser Kitty / ttomohisa Node Editor Core source snapshot under the same repository MIT license. Browser APIs provide image decoding/encoding, Canvas processing, Blob/File handling, and downloads. The ZIP writer is implemented in the project itself.
 

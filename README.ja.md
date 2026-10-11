@@ -8,6 +8,8 @@
 
 画像処理をノードでつなぎ、同じ処理手順を複数のJPEG / PNG / WebP画像へ繰り返し適用できる、完全ローカル処理の単一HTMLブラウザアプリです。選択した画像を外部サーバーへアップロードせず、Preview・一括処理・エンコード・ZIP生成までブラウザ内で行います。
 
+ダイアログを開いている間は背後のページをスクロールさせません。Recipeの更新・削除の確認では、本文と操作ボタンをスクロールしても上部の閉じるボタンを使えます。
+
 ## 🚀 デモ
 
 ### [GitHub PagesでImage Pipeline Builderを開く](https://ttomohisa.github.io/htmlapps-image-pipeline-builder/)
@@ -49,7 +51,7 @@ GitHub Pagesから最初のHTMLを読み込んだ後、画像のデコード、P
 3. `dist/index.html` と `dist/index.self-extract.html` が生成・検証されます。
 4. 生成したHTMLを任意の場所へコピーして利用できます。
 
-`dependencies.json` にはv1.0.1時点でruntime npmライブラリを登録していません。画像処理ランタイムとZIP writerはこのリポジトリ内で実装し、指定されたNode Editor Coreスナップショットをソースとして同梱しています。
+`dependencies.json` にはv1.0.3時点でruntime npmライブラリを登録していません。画像処理ランタイムとZIP writerはこのリポジトリ内で実装し、指定されたNode Editor Coreスナップショットをソースとして同梱しています。
 
 ## 使い方
 
@@ -205,8 +207,8 @@ Recipe / 現在のPipeline自動復元でブラウザへ保存するのはGraph�
 
 ## 制限事項
 
-- v1.0.1の入力は静止画JPEG / PNG / WebPです。Animated GIF/WebP、HEIC/HEIF、TIFF、RAW、SVG、PSDは入力できません。
-- 出力はJPEG / PNG / WebPです。AVIFはv1.0.1に含まれません。
+- v1.0.3の入力は静止画JPEG / PNG / WebPです。Animated GIF/WebP、HEIC/HEIF、TIFF、RAW、SVG、PSDは入力できません。
+- 出力はJPEG / PNG / WebPです。AVIFはv1.0.3に含まれません。
 - Cropは一括処理向けの比率 / サイズ / Anchor方式で、画像ごとの自由なドラッグCropではありません。
 - Text WatermarkはOS標準フォントを使用し、外部Webフォントは読み込みません。
 - JPEGでは透明部分を指定背景色へflattenして出力します。
@@ -219,7 +221,7 @@ Recipe / 現在のPipeline自動復元でブラウザへ保存するのはGraph�
 
 ## 使用ライブラリ / 依存
 
-v1.0.1では `dependencies.json` に第三者npm runtimeライブラリを登録していません。
+v1.0.3では `dependencies.json` に第三者npm runtimeライブラリを登録していません。
 
 Browser Kitty / ttomohisaのNode Editor Coreスナップショットを同じMITライセンスのソースとして同梱しています。画像decode / encode、Canvas処理、Blob / File、ダウンロードはブラウザAPIを利用し、ZIP writerはプロジェクト内で実装しています。
 

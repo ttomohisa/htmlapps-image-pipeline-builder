@@ -237,11 +237,14 @@ if ($ForceDownload) { $buildArguments.ForceDownload = $true }
 
 # Run the Core and Consumer regressions after both standalone variants are built.
 $testFiles = @(Get-ChildItem -Path (Join-Path $Root "tests") -Filter "*.test.mjs" | ForEach-Object { $_.FullName })
+$previousDialogArtifactCheck = $env:VERIFY_DIALOG_ARTIFACTS
 Push-Location $Root
 try {
+  $env:VERIFY_DIALOG_ARTIFACTS = "1"
   & node --test @testFiles
   if ($LASTEXITCODE -ne 0) { throw "Core/Consumer regression tests failed." }
 } finally {
+  $env:VERIFY_DIALOG_ARTIFACTS = $previousDialogArtifactCheck
   Pop-Location
 }
 
