@@ -1,8 +1,8 @@
-Image Pipeline Builder v1.0.1
+Image Pipeline Builder v1.0.3
 
 Start here:
 - README.md / README.ja.md: usage, Recipes/Pipeline JSON, privacy, build and development notes
-- APP_SPEC.md: stable v1.0.1 scope and release acceptance
+- APP_SPEC.md: stable v1.0.3 scope and release acceptance
 - docs/ARCHITECTURE.md: Node Editor Core / Consumer boundary and runtime behavior
 - VERIFY_OFFLINE.md / VERIFY_OFFLINE.ja.md: fully-local verification
 

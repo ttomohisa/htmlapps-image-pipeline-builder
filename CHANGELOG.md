@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.3 - 2026-10-11
+
+- Keep the background page stationary while native dialogs are open, including nested Recipe dialogs.
+- Keep the generic Recipe Update/Delete confirmation header visible while its message and actions scroll within the bounded dialog.
+- Add source and shipped-artifact dialog regressions to the canonical repository check.
+
 ## 1.0.2 - 2026-10-09
 
 - Normalize icon brand color and exact 25% background corner radii without changing artwork.

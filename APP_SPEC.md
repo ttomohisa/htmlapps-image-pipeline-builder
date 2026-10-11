@@ -1,5 +1,12 @@
 # Image Pipeline Builder — APP_SPEC
 
+## v1.0.3 — Modal scrolling
+
+- Native modal dialogs lock scrolling on both document roots until the final modal closes. Existing floating-workspace and custom mobile-palette behavior remains unchanged.
+- The generic Recipe Update/Delete confirmation stays within the viewport with a non-shrinking header. Only its body, including message and actions, scrolls; preserve safe-area padding, Cancel, Close, Escape, backdrop cancellation, and focus restoration.
+- Preserve ordinary Help/Recipe/export/template shells, browser-native confirmation branches, Core bytes, and image-processing behavior.
+- Verify JA/EN desktop and short mobile viewports, long Recipe confirmations, nested open/close, background wheels, and source/readable/root/self-extracted parity.
+
 ## v1.0.2 — Icon normalization
 
 - Canonical background and matching artwork green: `#16624f`; background x/y radii exactly 25% of their respective dimensions.
@@ -9,7 +16,7 @@
 
 - **Name:** Image Pipeline Builder
 - **Japanese:** 画像処理パイプライン
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Repository:** `ttomohisa/htmlapps-image-pipeline-builder`
 - **Purpose:** Connect image-processing steps as a visible graph, reuse the flow, and apply it to multiple local images entirely in the browser.
 
