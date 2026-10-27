@@ -31,11 +31,12 @@ for (const file of ['src/index.template.html', 'dist/index.html', 'dist/index.se
       const document = { documentElement: {}, querySelectorAll: selector => ({ '[data-i18n]': [badge], '[data-i18n-title]': [...controls.values()].filter(el => el.dataset.i18nTitle), '[data-i18n-aria-label]': [...controls.values()].filter(el => el.dataset.i18nAriaLabel) }[selector] || []) };
       const state = { sourceItems: [{ id: 'existing' }], batchResult: { name: 'existing.png' }, graph: { nodes: [{ id: 'existing' }] } };
       const before = JSON.stringify(state);
-      const context = vm.createContext({ ...state, language, document, APP_CONFIG: { name: 'Image Pipeline Builder' }, $: id => controls.get(id), nodeCanvas: { setTranslator() {} }, renderInspector() {}, renderGraphStatus() {}, renderRecipeList() {}, renderQuickRecipes() {}, applyPaletteSearch() {} });
+      const context = vm.createContext({ ...state, language, document, APP_CONFIG: { name: 'Image Pipeline Builder' }, $: id => controls.get(id), nodeCanvas: { setTranslator() {} }, renderConventions() {},renderInspector() {}, renderGraphStatus() {}, renderRecipeList() {}, renderQuickRecipes() {}, applyPaletteSearch() {} });
       const start = source.indexOf('const messages={');
       const end = source.indexOf('const AppToast=', start);
       assert.ok(start >= 0 && end > start);
       vm.runInContext(coreSource + '\nconst Core = globalThis.NodeEditorCore;\n' + source.slice(start, end), context);
+      context.renderConventions=()=>{};
       context.setTextTranslations();
       const languageButton = controls.get('#languageButton');
       assert.equal(languageButton.textContent, visible);

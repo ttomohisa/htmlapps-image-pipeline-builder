@@ -41,7 +41,7 @@ function harness() {
     }
     return [...new Set(found)];
   }};
-  const ctx={Core,Pipeline,registry,graph,AbortController,Set,Map,Date,Blob,console,document,$,
+  const ctx={BrowserKittyUI:{text:k=>k},ui:{recovery:'dirty',savedTime:'',failures:{},quickOpen:new Set(),confirm:null},setFailure(){},renderConventions(){},askScope:async options=>ctx.AppConfirm?ctx.AppConfirm.ask({title:ctx.t(options.titleKey,options.params),message:ctx.t(options.messageKey,options.params),confirmLabel:ctx.t(options.confirmKey||options.titleKey,options.params),cancelLabel:ctx.t('cancel'),tone:'danger'}):true,Core,Pipeline,registry,graph,AbortController,Set,Map,Date,Blob,console,document,$,
     APP_CONFIG:{version:'1.0.0'}, RECIPE_LIMIT:30,SAVED_WORKFLOWS_STORAGE_KEY:'recipes',
     pipelineImportGeneration:0,recipeExportSnapshot:null,savedWorkflows:[],quickRecipeFiles:new Map(),batchAbortController:null,activeBatchJob:null,batchResult:null,batchRunning:false,recipeMutationPending:false,
     sourceItems:[{id:'source',file:{name:'source.png',type:'image/png',size:10}}],

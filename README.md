@@ -236,3 +236,5 @@ Bug reports and feature proposals are welcome through GitHub Issues. See [CONTRI
 Copyright © 2026 ttomohisa
 
 Licensed under the [MIT License](LICENSE).
+
+Common UI v1: Autosave status/retry covers only flow/settings; original images are required to resume. Project JSON/ZIP names are editable and download delivery reports its start. File-list removal, project replacement and Recipe updates/deletes use scoped app confirmation. Language switching retains drafts and does not schedule recovery writes. Core, image engines and version-1 workflow formats stay unchanged.

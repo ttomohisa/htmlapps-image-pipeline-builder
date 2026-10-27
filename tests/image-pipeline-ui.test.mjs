@@ -354,7 +354,7 @@ test('v1.0.0 exposes Pipeline JSON save and open separately from Recipe storage'
 test('v1.0.0 language refresh does not depend on the removed legacy brandName element', () => {
   assert.equal(html.includes("$('#brandName').textContent"), false);
   assert.ok(html.includes('class="brand-name"'));
-  assert.ok(html.includes("document.title=APP_CONFIG.name"));
+  assert.ok(html.includes("document.title=language==='ja'?(APP_CONFIG.nameJa||APP_CONFIG.name):APP_CONFIG.name"));
 });
 
 test('v1.0.0 quick Recipe execution reveals the Run page on mobile', () => {

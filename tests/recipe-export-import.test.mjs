@@ -26,7 +26,7 @@ function width(ctx){return ctx.graph.nodes.find(n=>n.type==='resize').data.width
 function deferred(){let resolve,reject;const promise=new Promise((yes,no)=>{resolve=yes;reject=no});return {promise,resolve,reject};}
 function harness(){
   const controls=new Map(),downloads=[],notices=[],applied=[],recovery=[];
-  const ctx={Core,Pipeline,registry,Blob,TextEncoder,graph:Pipeline.parseWorkflowDocument(Core,documentFor(111),{registry}).graph,
+  const ctx={BrowserKittyUI:{text:k=>k},ui:{recovery:'dirty',savedTime:'',failures:{},quickOpen:new Set(),confirm:null},setFailure(){},renderConventions(){},askScope:async options=>ctx.AppConfirm?ctx.AppConfirm.ask({title:ctx.t(options.titleKey,options.params),message:ctx.t(options.messageKey,options.params),confirmLabel:ctx.t(options.confirmKey||options.titleKey,options.params),cancelLabel:ctx.t('cancel'),tone:'danger'}):true,Core,Pipeline,registry,Blob,TextEncoder,graph:Pipeline.parseWorkflowDocument(Core,documentFor(111),{registry}).graph,
     APP_CONFIG:{version:'1.0.0'},RECIPE_LIMIT:30,savedWorkflows:[Pipeline.createSavedWorkflowRecord({id:'A',name:'保存 Recipe',document:documentFor(222,'保存 Recipe'),updatedAt:'2026-10-01T00:00:00Z'})],
     quickRecipeFiles:new Map([['A',[{name:'staged.png',type:'image/png'}]]]),recipeExportSnapshot:null,pipelineImportGeneration:0,
     batchRunning:false,batchAbortController:null,previewGeneration:0,previewFrame:{close(){}},sourceSequence:0,

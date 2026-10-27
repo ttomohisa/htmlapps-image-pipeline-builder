@@ -332,6 +332,8 @@ $manifest = [ordered]@{
 
 Write-Step "Generating standalone HTML"
 $template = [System.IO.File]::ReadAllText($TemplatePath, [System.Text.Encoding]::UTF8)
+. (Join-Path $Root "scripts/embed-ui-conventions.ps1")
+$template = Expand-BrowserKittyUI -Template $template -ComponentsPath (Join-Path $Root "components")
 $coreSource = [System.IO.File]::ReadAllText($CoreSourcePath, [System.Text.Encoding]::UTF8)
 $coreSource = [regex]::Replace($coreSource, "(?m)^\s*export default (?:globalThis\.)?NodeEditorCore;\s*$", "")
 if ([regex]::IsMatch($coreSource, "(?m)^\s*export\s")) { throw "Node Editor Core browser embed still contains an ES module export statement." }
@@ -466,6 +468,9 @@ if ($appConfig.build.PSObject.Properties.Name -contains "sizeBudget" -and $appCo
 }
 
 $outputHash = Get-Sha256FileHex $OutputPath
+if (-not $OutputPathWasSpecified) {
+  Copy-Item -LiteralPath $OutputPath -Destination (Join-Path $Root "image-pipeline-builder.html") -Force
+}
 $outputSizeMb = [Math]::Round($readableBytes / 1MB, 2)
 Write-Host ""
 Write-Host "[OK] Standalone HTML: $OutputPath" -ForegroundColor Green

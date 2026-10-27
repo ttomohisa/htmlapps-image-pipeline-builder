@@ -223,3 +223,5 @@ Mobile uses the four task-oriented pages described above rather than stacking th
 - **v1.0.0:** Stable release
 
 - **v1.0.1:** Consistent bilingual header controls.
+
+Common UI v1: Autosave status/retry covers only flow/settings; original images are required to resume. Project JSON/ZIP names are editable and download delivery reports its start. File-list removal, project replacement and Recipe updates/deletes use scoped app confirmation. Language switching retains drafts and does not schedule recovery writes. Core, image engines and version-1 workflow formats stay unchanged.

@@ -236,3 +236,5 @@ Browser Kitty / ttomohisaのNode Editor Coreスナップショットを同じMIT
 Copyright © 2026 ttomohisa
 
 このプロジェクトは [MIT License](LICENSE) で公開されています。
+
+共通UI v1: フローと設定だけを自動保存し、保存失敗と再試行を作業領域に表示します。画像は再開時に追加してください。作業JSONとZIPはファイル名を編集でき、保存開始を通知します。画像一覧・作業の置換・Recipe更新削除は対象を示す確認を使用します。言語切替では入力中の設定と保存状態を保持します。

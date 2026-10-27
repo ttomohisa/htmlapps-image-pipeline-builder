@@ -302,3 +302,5 @@ All notable changes to Image Pipeline Builder are documented here.
 - Japanese / English UI and responsive smartphone layout.
 - Runtime network blocking with `connect-src 'none'`.
 - Browser Kitty favicon/header icon, screenshots, README, tests, and release documentation.
+
+Common UI v1: Autosave status/retry covers only flow/settings; original images are required to resume. Project JSON/ZIP names are editable and download delivery reports its start. File-list removal, project replacement and Recipe updates/deletes use scoped app confirmation. Language switching retains drafts and does not schedule recovery writes. Core, image engines and version-1 workflow formats stay unchanged.
