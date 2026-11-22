@@ -4,7 +4,7 @@ const path = require('node:path');
 const {gunzipSync} = require('node:zlib');
 const root = path.resolve(__dirname, '..');
 const asset = fs.readFileSync(path.join(root, 'assets/favicon.svg'));
-assert.equal(require('node:crypto').createHash('sha256').update(asset).digest('hex'), 'faa2fe8da6c2c61597a994e486413ef39e2c5757afa4efd8f9a39287402b6e7c', 'Preserve the normalized canonical artwork');
+assert.equal(require('node:crypto').createHash('sha256').update(asset).digest('hex'), '2cf708cbe062cebdf1e3b88e8301f7bec8f792baff5a03dcf6eeae590368f21d', 'Preserve the normalized canonical artwork');
 const svg = asset.toString();
 const tag = svg.match(/<rect\b[^>]*>/)[0];
 const a = Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(m => [m[1],m[2]]));

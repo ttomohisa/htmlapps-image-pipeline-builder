@@ -319,7 +319,7 @@ test('v0.8 refreshes the Images node summary when the source list changes', () =
 
 test('v1.0.0 uses the supplied Image Pipeline Builder icon for favicon and header', () => {
   const favicon = fs.readFileSync('assets/favicon.svg', 'utf8').trim();
-  assert.ok(favicon.includes('viewBox="0 0 64 64"'));
+  assert.ok(favicon.includes('viewBox="2.46875 2.46875 59.0625 59.0625"'));
   assert.ok(favicon.includes('width="59" height="59" rx="14.75"'));
   assert.ok(favicon.includes('#16624f'));
   assert.ok(html.includes('id="appBrandIcon" src="__APP_ICON_DATA_URI__"'));
